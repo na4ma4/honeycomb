@@ -135,6 +135,7 @@ func (handler *Handler) prepareUpstreamHeaders(request *http.Request, isWebSocke
 	upstreamHeaders.Set("Host", request.Host)
 	upstreamHeaders.Set("X-Forwarded-For", forwardedFor)
 	upstreamHeaders.Set("X-Forwarded-SSL", "on")
+	upstreamHeaders.Set("X-Real-IP", forwardedFor)
 
 	if isWebSocket {
 		upstreamHeaders.Set("X-Forwarded-Proto", "wss")
